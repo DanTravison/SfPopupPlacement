@@ -38,12 +38,16 @@ This is the issue I'm trying to resolve.
 My current implementation uses SfPopup.ShowAsync with an AbsoluteX, AbsoluteY, and PopupRelativePlacement.AlignTop.
 I chose AlignTop because it does not require knowledge of the popup's height or width.
 
-However, when I use AlignTop, the popup is actually displayed at AbsoluteX, AbsoluteY - (Popup Height).
+Expected: The popup to be displayed with the upper-left corner of the popup
+placed at the AbsoluteX and AbsoluteY location.
+
+Actual: The popup is displayed with the lower-left corner at the the AbsoluteX and AbsoluteY location.
+In otherwords, the upper-left corner is at AbsoluteX, AbsoluteY - (Popup Height).
 
 The sample uses SfPopup.Show but I see the same behavior with SfPopup.ShowAsync.
 
-The ![Screen Shot](ScreenShot.png) shows the displayed popup. The 
-red X indicates the tap point passed as AbsoluteX and AbsoluteY.
+The following image illustrates the issue. The red X marks the tap point (AbsoluteX, AbsoluteY).
+![Screen Shot](ScreenShot.png)
 
 2: Defining a button on a page that display an SfPopup relative to the containing MainPage
 Like the previous Syncfusion example code, the buttons display a popup on the MainPage with an AbsoluteX = 30, 
