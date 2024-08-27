@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PopupMaui"
+             x:Class="PopupMaui.MainPage"
+             x:DataType="local:MainViewModel">
+
+    <ContentPage.Resources>
+        <DataTemplate x:Key="PopupButtonTemplate" x:DataType="local:PopupCommand">
+            <!-- display the popup Page.Content as the RelativeView -->
+            <Button Text="{Binding Text}" 
+                    Command="{Binding}"
+                    CommandParameter="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=Content, Mode=OneWay}"/>
+        </DataTemplate>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="*">
+        <Grid HorizontalOptions="Center" RowSpacing="10" VerticalOptions="Center"
+                RowDefinitions="Auto, Auto, Auto">
+            <Label Text="RelativePopupPlacement"
+                    Grid.Row="0"/>
+            <VerticalStackLayout Grid.Row="1"
+                                 BindableLayout.ItemsSource="{Binding Commands, Mode=OneTime}"
+                                 BindableLayout.ItemTemplate="{StaticResource PopupButtonTemplate}"
+                                 Spacing="5"
+                                 />
+            <Label Grid.Row="2"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    Text="Right-click on the page"
+                    />
+        </Grid>
+    </Grid>    
+</ContentPage>
