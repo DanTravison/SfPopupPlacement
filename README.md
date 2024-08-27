@@ -42,6 +42,9 @@ However, when I use AlignTop, the popup is actually displayed at AbsoluteX, Abso
 
 The sample uses SfPopup.Show but I see the same behavior with SfPopup.ShowAsync.
 
+The ![Screen Shot](ScreenShot.png) shows the displayed popup. The 
+red X indicates the tap point passed as AbsoluteX and AbsoluteY.
+
 2: Defining a button on a page that display an SfPopup relative to the containing MainPage
 Like the previous Syncfusion example code, the buttons display a popup on the MainPage with an AbsoluteX = 30, 
 AbsoluteY = 30, and a PopupRelativePlacement value.
